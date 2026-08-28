@@ -1,0 +1,333 @@
+.projects {
+  position: relative;
+  padding: 80px 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 56px;
+  max-width: 600px;
+}
+
+.title {
+  color: var(--white);
+  letter-spacing: -0.03em;
+  font-size: clamp(26px, 4vw, 44px);
+}
+
+.subtitle {
+  color: var(--white-50);
+}
+
+/* Project list */
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+/* Project item */
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.projectEven {
+  /* normal: text left, image right */
+}
+
+.projectOdd {
+  direction: rtl;
+}
+
+.projectOdd > * {
+  direction: ltr;
+}
+
+/* Text side */
+.textSide {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.projectHeaderRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.projectNum {
+  font-size: clamp(40px, 5vw, 70px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(59, 130, 246, 0.25);
+  line-height: 0.8;
+  font-family: var(--font-mono);
+  user-select: none;
+}
+
+.badgeFeatured {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid var(--blue-border);
+  font-size: 10px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--blue-bright);
+  letter-spacing: 0.1em;
+}
+
+.badgeDev {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(96, 165, 250, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  font-size: 10px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: #60a5fa;
+  letter-spacing: 0.1em;
+}
+
+.devDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #60a5fa;
+  box-shadow: 0 0 6px #60a5fa;
+  animation: pulseDotDev 2s infinite ease-in-out;
+}
+
+@keyframes pulseDotDev {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.4); }
+}
+
+.projectMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.projectTitle {
+  font-size: clamp(22px, 2.5vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 1.15;
+}
+
+.projectDesc {
+  font-size: 14px;
+  color: var(--white-60);
+  line-height: 1.7;
+  max-width: 440px;
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.techPill {
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--blue-bright);
+  background: var(--blue-subtle);
+  border: 1px solid var(--blue-border);
+  font-family: var(--font-mono);
+  letter-spacing: 0.03em;
+}
+
+.projectLinks {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.devTagButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.projectBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.projectBtnOutline {
+  background: transparent;
+  color: var(--white-80);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.projectBtnOutline:hover {
+  background: var(--blue-subtle);
+  border-color: var(--blue-border);
+  color: var(--blue-bright);
+  transform: translateY(-2px);
+}
+
+.projectBtnPrimary {
+  background: var(--blue);
+  color: var(--white);
+  border: 1px solid var(--blue);
+}
+
+.projectBtnPrimary:hover {
+  background: var(--blue-bright);
+  box-shadow: 0 0 20px var(--blue-glow);
+  transform: translateY(-2px);
+}
+
+/* Image side */
+.imageSide {
+  position: relative;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.imageWrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--white-10);
+  background: var(--black-card);
+  box-shadow:
+    0 16px 50px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.projectImage {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.imageSide:hover .projectImage {
+  transform: scale(1.02);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.06) 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.imageSide:hover .imageOverlay {
+  opacity: 1;
+}
+
+.imageGlow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 17px;
+  border: 1px solid transparent;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  pointer-events: none;
+}
+
+.imageSide:hover .imageGlow {
+  border-color: var(--blue-border);
+  box-shadow: 0 0 30px var(--blue-subtle);
+}
+
+/* Corner accents */
+.corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--blue);
+  border-style: solid;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.imageSide:hover .corner {
+  opacity: 0.6;
+}
+
+.tl { top: -3px; left: -3px; border-width: 1px 0 0 1px; border-radius: 2px 0 0 0; }
+.tr { top: -3px; right: -3px; border-width: 1px 1px 0 0; border-radius: 0 2px 0 0; }
+.bl { bottom: -3px; left: -3px; border-width: 0 0 1px 1px; border-radius: 0 0 0 2px; }
+.br { bottom: -3px; right: -3px; border-width: 0 1px 1px 0; border-radius: 0 0 2px 0; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .project {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .projectOdd {
+    direction: ltr;
+  }
+
+  .projectList {
+    gap: 50px;
+  }
+
+  .projectDesc {
+    max-width: 100%;
+  }
+
+  .projectImage {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectImage {
+    height: 180px;
+  }
+
+  .projectNum {
+    font-size: 36px;
+  }
+}

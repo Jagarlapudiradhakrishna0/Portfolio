@@ -1,0 +1,397 @@
+/* ─── Certificates Section (Sliding Carousel) ─────────────────── */
+.certs {
+  position: relative;
+  padding: 80px 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+.title {
+  color: var(--white);
+  letter-spacing: -0.03em;
+  font-size: clamp(26px, 4vw, 44px);
+}
+
+.subtitle {
+  color: var(--white-50);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 32px;
+  background: rgba(10, 10, 15, 0.7);
+  border: 1px solid var(--white-10);
+  border-radius: 12px;
+  padding: 4px;
+  width: fit-content;
+}
+
+.tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 22px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white-50);
+  cursor: pointer;
+  transition: color 0.25s ease;
+  letter-spacing: 0.03em;
+  border: none;
+  background: none;
+  font-family: var(--font-main);
+}
+
+.tab:hover {
+  color: var(--white-80);
+}
+
+.tabActive {
+  color: var(--white);
+}
+
+.tabIndicator {
+  position: absolute;
+  inset: 0;
+  border-radius: 9px;
+  background: var(--blue-subtle);
+  border: 1px solid var(--blue-border);
+  z-index: 0;
+}
+
+.tab span {
+  position: relative;
+  z-index: 1;
+}
+
+.tabCount {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: var(--white-10);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--white-70);
+  font-family: var(--font-mono);
+  padding: 0 4px;
+}
+
+.tabActive .tabCount {
+  background: rgba(59, 130, 246, 0.25);
+  color: var(--blue-bright);
+}
+
+/* ─── Carousel Stage ─────────────────────────────────────── */
+.carouselContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navArrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(10, 10, 15, 0.8);
+  border: 1px solid var(--white-10);
+  color: var(--white-70);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(12px);
+}
+
+.navArrow:hover {
+  background: var(--blue-subtle);
+  border-color: var(--blue-border);
+  color: var(--blue-bright);
+  box-shadow: 0 0 20px var(--blue-subtle);
+  transform: scale(1.05);
+}
+
+.cardWindow {
+  flex: 1;
+  min-height: 280px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* Active Certificate Card */
+.activeCard {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  background: var(--black-card);
+  border: 1px solid var(--blue-border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(59, 130, 246, 0.12);
+  min-height: 280px;
+}
+
+/* Preview Box (Left) */
+.previewBox {
+  position: relative;
+  background: #0f111a;
+  overflow: hidden;
+  border-right: 1px solid var(--white-10);
+  height: 100%;
+  min-height: 260px;
+}
+
+.previewIframe {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  border: none;
+  background: #ffffff;
+  pointer-events: none;
+  opacity: 0.92;
+  transform: scale(0.95);
+  transform-origin: center top;
+}
+
+.previewOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(5, 5, 8, 0.7) 100%);
+  pointer-events: none;
+}
+
+.previewBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(5, 5, 8, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--blue-border);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--blue-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-mono);
+}
+
+/* Meta Box (Right) */
+.metaBox {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.metaHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.counterBadge {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--blue-bright);
+  letter-spacing: 0.12em;
+}
+
+.issuerTag {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white-40);
+  font-family: var(--font-mono);
+}
+
+.certHeading {
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.25;
+}
+
+.fullTitleText {
+  font-size: 13px;
+  color: var(--white-50);
+  line-height: 1.6;
+}
+
+/* Action Row */
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.viewButton {
+  background: var(--blue);
+  color: var(--white);
+  border: 1px solid var(--blue);
+  padding: 10px 20px;
+  font-size: 13px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.viewButton:hover {
+  background: var(--blue-bright);
+  border-color: var(--blue-bright);
+  box-shadow: 0 0 20px var(--blue-glow);
+  transform: translateY(-2px);
+}
+
+.externalLink {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--white-05);
+  border: 1px solid var(--white-10);
+  color: var(--white-60);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.externalLink:hover {
+  background: var(--blue-subtle);
+  border-color: var(--blue-border);
+  color: var(--blue-bright);
+  transform: translateY(-2px);
+}
+
+/* ─── Carousel Footer ─────────────────────────────────────── */
+.carouselFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.dotsTrack {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 400px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--white-20);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.dotActive {
+  width: 18px;
+  height: 6px;
+  border-radius: 100px;
+  background: var(--blue-bright);
+  box-shadow: 0 0 10px var(--blue-glow);
+}
+
+.footerHint {
+  font-size: 11px;
+  color: var(--white-30);
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .stage {
+    gap: 8px;
+  }
+
+  .navArrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .activeCard {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .previewBox {
+    height: 180px;
+    min-height: 180px;
+    border-right: none;
+    border-bottom: 1px solid var(--white-10);
+  }
+
+  .previewIframe {
+    min-height: 180px;
+  }
+
+  .metaBox {
+    padding: 20px;
+  }
+
+  .footerHint {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabs {
+    width: 100%;
+  }
+
+  .tab {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 12px;
+  }
+
+  .stage {
+    flex-direction: column;
+  }
+
+  .navArrow {
+    display: none;
+  }
+}

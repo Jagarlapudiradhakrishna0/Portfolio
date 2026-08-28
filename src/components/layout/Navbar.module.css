@@ -1,0 +1,323 @@
+/* ─── Floating Navbar Header Wrapper ─────────────────────────── */
+.headerWrapper {
+  position: fixed;
+  top: 16px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: none;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Nav Pill Container */
+.nav {
+  pointer-events: auto;
+  width: min(100%, 860px);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  padding: 0 18px;
+  border-radius: 100px;
+  background: rgba(8, 8, 12, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-sizing: border-box;
+}
+
+.scrolled .inner {
+  background: rgba(8, 8, 12, 0.92);
+  border-color: rgba(59, 130, 246, 0.25);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 24px rgba(59, 130, 246, 0.1);
+}
+
+/* Brand / Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px 4px 0;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  font-family: var(--font-main);
+}
+
+.logoDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--blue-bright);
+  box-shadow: 0 0 8px var(--blue-glow);
+}
+
+/* Desktop Links List */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  font-weight: 500;
+  font-family: var(--font-main);
+  letter-spacing: 0.02em;
+  color: var(--white-70);
+  background: none;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--white);
+}
+
+.active {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.activeIndicator {
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  background: rgba(59, 130, 246, 0.16);
+  border: 1px solid var(--blue-border);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
+  z-index: -1;
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hamburger:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: var(--blue-border);
+}
+
+.ham {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--white-80);
+  transition: all 0.25s ease;
+  transform-origin: center;
+}
+
+.hamOpenTop {
+  transform: translateY(6.5px) rotate(45deg);
+  background: var(--blue-bright);
+}
+
+.hamOpenMid {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamOpenBot {
+  transform: translateY(-6.5px) rotate(-45deg);
+  background: var(--blue-bright);
+}
+
+/* ─── Mobile Menu & Overlay ───────────────────────────────── */
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 16px 24px;
+}
+
+.mobileMenu {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(10, 10, 15, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--blue-border);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(59, 130, 246, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobileHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobileBrand {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--blue-bright);
+  font-weight: 700;
+}
+
+.mobileCloseBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: var(--white-05);
+  border: 1px solid var(--white-10);
+  color: var(--white-70);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mobileCloseBtn:hover {
+  background: var(--blue-subtle);
+  border-color: var(--blue-border);
+  color: var(--white);
+}
+
+.mobileLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+}
+
+.mobileLink {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--white-70);
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-family: var(--font-main);
+}
+
+.mobileLink:hover {
+  background: var(--white-05);
+  color: var(--white);
+  transform: translateX(4px);
+}
+
+.mobileLinkActive {
+  color: var(--blue-bright);
+  background: var(--blue-subtle);
+  font-weight: 600;
+}
+
+.mobileLinkNum {
+  font-size: 10.5px;
+  font-family: var(--font-mono);
+  color: var(--blue-bright);
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+}
+
+.mobileLinkLabel {
+  flex: 1;
+}
+
+.mobileActiveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue-bright);
+  box-shadow: 0 0 8px var(--blue-glow);
+}
+
+/* ─── Responsive Breakpoints ──────────────────────────────── */
+@media (max-width: 880px) {
+  .links {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerWrapper {
+    top: 10px;
+    padding: 0 10px;
+  }
+  .inner {
+    height: 48px;
+    padding: 0 14px;
+  }
+  .logoText {
+    font-size: 14px;
+  }
+}

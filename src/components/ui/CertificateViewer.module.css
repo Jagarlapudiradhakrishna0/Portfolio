@@ -1,0 +1,189 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  background: var(--black-card);
+  border: 1px solid var(--blue-border);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 0 80px rgba(59, 130, 246, 0.15),
+    0 40px 100px rgba(0, 0, 0, 0.8);
+}
+
+/* Header */
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--white-10);
+  background: rgba(5, 5, 8, 0.5);
+  flex-shrink: 0;
+}
+
+.certInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.counter {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--blue-bright);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.certTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.certIssuer {
+  font-size: 12px;
+  color: var(--white-50);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.downloadBtn, .closeBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white-70);
+  background: var(--white-05);
+  border: 1px solid var(--white-10);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.downloadBtn:hover, .closeBtn:hover {
+  background: var(--blue-subtle);
+  border-color: var(--blue-border);
+  color: var(--blue-bright);
+}
+
+/* Certificate frame */
+.certFrame {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.certContent {
+  position: absolute;
+  inset: 0;
+}
+
+.certIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #fff;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-top: 1px solid var(--white-10);
+  background: rgba(5, 5, 8, 0.5);
+  flex-shrink: 0;
+}
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white-70);
+  background: var(--white-05);
+  border: 1px solid var(--white-10);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navBtn:hover:not(.navBtnDisabled) {
+  background: var(--blue-subtle);
+  border-color: var(--blue-border);
+  color: var(--blue-bright);
+}
+
+.navBtnDisabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Dots */
+.dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 300px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--white-20);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dotActive {
+  background: var(--blue-bright);
+  box-shadow: 0 0 6px var(--blue-glow);
+  transform: scale(1.3);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal {
+    max-width: 100%;
+    border-radius: 24px 24px 0 0;
+    max-height: 95vh;
+  }
+
+  .certFrame {
+    min-height: 300px;
+  }
+}
