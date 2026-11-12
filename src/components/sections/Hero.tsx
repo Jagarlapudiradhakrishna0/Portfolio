@@ -95,7 +95,7 @@ function ProfileComposition() {
 
       {/* Floating stats — outside card */}
       <div className={styles.stat1}>
-        <span className={styles.statNum}>4+</span>
+        <span className={styles.statNum}>5+</span>
         <span className={styles.statLabel}>Projects</span>
       </div>
       <div className={styles.stat2}>
@@ -171,7 +171,7 @@ export default function Hero() {
           >
             Passionate developer focused on building real-world, problem-driven solutions. Engineering modern web applications and scalable platforms — from a comprehensive{' '}
             <span className={styles.bioHighlight}>Lost &amp; Found platform</span> to{' '}
-            <span className={styles.bioHighlight}>RYDO</span>, a ride coordination platform currently under development.
+            <span className={styles.bioHighlight}>RYDO</span>, a connected motorcycle convoy and real-time group riding platform.
           </motion.p>
 
           {/* Key Project Highlights */}
@@ -196,15 +196,26 @@ export default function Hero() {
 
             <a
               href="#projects"
-              className={`${styles.projectPill} ${styles.projectPillDev}`}
+              className={styles.projectPill}
               onClick={e => {
                 e.preventDefault()
                 document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
               }}
             >
-              <span className={styles.pulseDot} />
-              <span className={styles.pillTagDev}>BUILDING</span>
+              <span className={styles.pillTag}>MOBILE</span>
               <span className={styles.pillTitle}>RYDO</span>
+            </a>
+
+            <a
+              href="#projects"
+              className={styles.projectPill}
+              onClick={e => {
+                e.preventDefault()
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+              }}
+            >
+              <span className={styles.pillTag}>3D GAME</span>
+              <span className={styles.pillTitle}>Zombie Runner</span>
             </a>
           </motion.div>
 

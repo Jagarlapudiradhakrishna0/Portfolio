@@ -8,7 +8,7 @@ export const personal = {
   title: 'Full Stack Developer & AI/ML Engineer',
   shortTitle: 'Full Stack Developer',
   tagline: 'Building real-world, problem-driven digital solutions.',
-  bio: `I'm a passionate Full Stack Developer and AI/ML Engineer focused on building real-world, problem-driven solutions. I work across modern web applications, intelligent systems, and scalable platforms, with projects ranging from a comprehensive Lost & Found platform to RYDO, a ride-sharing coordination solution currently under development.`,
+  bio: `I'm a passionate Full Stack Developer and AI/ML Engineer focused on building real-world, problem-driven solutions. I work across modern web applications, intelligent systems, and scalable platforms, with projects ranging from a comprehensive Lost & Found platform to RYDO, a connected motorcycle convoy and real-time group riding platform, and Zombie Runner, a 3D endless survival-horror game.`,
   email: 'radhakrishnajagarlapudi@gmail.com',
   github: 'https://github.com/jagarlapudiradhakrishna0',
   linkedin: 'https://www.linkedin.com/in/jagarlapudiradhakrishna/',
@@ -112,6 +112,8 @@ export interface Project {
   image: string;
   github: string | null;
   demo: string | null;
+  apkDownload?: string | null;
+  imageSide?: 'left' | 'right';
   status: 'FEATURED' | 'IN DEVELOPMENT' | 'COMPLETED';
   featured: boolean;
 }
@@ -128,6 +130,7 @@ export const projects: Project[] = [
     image: '/Portfolio/project3.png',
     github: 'https://github.com/Jagarlapudiradhakrishna0/project_lost_and_found',
     demo: 'https://lostandfound-1vzs.onrender.com/',
+    imageSide: 'right',
     status: 'FEATURED',
     featured: true,
   },
@@ -137,12 +140,14 @@ export const projects: Project[] = [
     title: 'RYDO',
     subtitle: 'Ride & Group Coordination Platform',
     description:
-      'A real-time ride and group coordination platform where the trip creator acts as the Captain and other users securely join as Riders using unique group passcodes. Engineered for seamless transit coordination and collaborative group travel.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Express.js', 'WebSockets', 'JavaScript'],
+      'RYDO is a connected motorcycle convoy and real-time group riding platform. It helps motorcycle riders coordinate group rides through voice communication, live location sharing, navigation, ride management, and emergency SOS notifications.',
+    tech: ['React Native', 'Expo SDK 58', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO'],
     image: '/Portfolio/rydo.png',
     github: 'https://github.com/Jagarlapudiradhakrishna0/RYDO',
     demo: null,
-    status: 'IN DEVELOPMENT',
+    apkDownload: 'https://github.com/Jagarlapudiradhakrishna0/RYDO/releases/download/v1.0.0/RYDO.apk',
+    imageSide: 'left',
+    status: 'COMPLETED',
     featured: true,
   },
   {
@@ -156,12 +161,28 @@ export const projects: Project[] = [
     image: '/Portfolio/project1.png',
     github: 'https://github.com/Jagarlapudiradhakrishna0/MiaAi',
     demo: 'https://immiaassistant.netlify.app/',
+    imageSide: 'left',
     status: 'COMPLETED',
     featured: false,
   },
   {
     id: 4,
     number: '04',
+    title: 'Zombie Runner',
+    subtitle: '3D Game Development & Survival Horror',
+    description:
+      'A 3D endless survival-horror runner game developed using Unity 6. Players navigate through apocalyptic environments, fight different types of zombies, collect coins and ammunition, jump over obstacles, and slide to survive.',
+    tech: ['Unity 6', 'C#', 'Universal Render Pipeline', 'Unity Input System', 'TextMeshPro', 'Mixamo'],
+    image: '/Portfolio/zombie runner.png',
+    github: 'https://github.com/SanskarKatkar/zombierunner',
+    demo: null,
+    imageSide: 'right',
+    status: 'COMPLETED',
+    featured: true,
+  },
+  {
+    id: 5,
+    number: '05',
     title: 'Luxe Store',
     subtitle: 'High-Performance E-Commerce Experience',
     description:
@@ -170,6 +191,7 @@ export const projects: Project[] = [
     image: '/Portfolio/project2.png',
     github: 'https://github.com/Jagarlapudiradhakrishna0/LUXE',
     demo: 'https://luxein.netlify.app/',
+    imageSide: 'left',
     status: 'COMPLETED',
     featured: false,
   },

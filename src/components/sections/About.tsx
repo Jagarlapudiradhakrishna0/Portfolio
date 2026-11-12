@@ -4,7 +4,7 @@ import { personal } from '../../data/portfolio'
 import styles from './About.module.css'
 
 const stats = [
-  { num: '4+', label: 'Projects & Platforms' },
+  { num: '5+', label: 'Projects & Platforms' },
   { num: '4', label: 'Virtual Internships' },
   { num: '18+', label: 'Certifications' },
   { num: '5+', label: 'Domains' },
